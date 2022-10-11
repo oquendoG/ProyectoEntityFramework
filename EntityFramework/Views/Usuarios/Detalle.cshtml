@@ -1,0 +1,56 @@
+﻿@model Usuario
+@{
+    ViewData["Title"] = "Detalle de usuario";
+}
+
+<h3 class="text-center">Detalle usuario</h3>
+<form method="post" asp-action="AgregarDetalle">
+    <input asp-for="Id" type="hidden"/>
+    <input asp-for="DetalleUsuario.DetalleUsuario_Id" type="hidden"/>
+    <div class="row">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="col-12 mt-4">
+            <div class="row">
+
+                <div class="col-4">
+                    <label asp-for="NombreUsuario"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="NombreUsuario" class="form-control" disabled />
+                    <span asp-validation-for="NombreUsuario" class="text-danger"></span>
+                </div>
+                <div class="col-4">
+                    <label asp-for="DetalleUsuario.Cedula"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="DetalleUsuario.Cedula" class="form-control" />
+                    <span asp-validation-for="DetalleUsuario.Cedula" class="text-danger"></span>
+                </div>
+                <div class="col-4">
+                    <label asp-for="DetalleUsuario.Deporte"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="DetalleUsuario.Deporte" class="form-control" />
+                    <span asp-validation-for="DetalleUsuario.Deporte" class="text-danger"></span>
+                </div> 
+                <div class="col-4">
+                    <label asp-for="DetalleUsuario.Mascota"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="DetalleUsuario.Mascota" class="form-control" />
+                    <span asp-validation-for="DetalleUsuario.Mascota" class="text-danger"></span>
+                </div>
+            </div>
+          
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-3">
+            <a asp-action="Index">Volver a lista</a>
+        </div>
+        <div class="col-5 offset-4">
+            <button type="submit" class="btn btn-primary form-control">Guardar</button>
+            &nbsp
+        </div>
+    </div>
+</form>

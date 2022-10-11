@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Etiqueta>
+@{
+    ViewData["Title"] = "Etiquetas";
+}
+
+<div class="row">   
+    <div class="col-4">
+        <h3>Lista de etiquetas</h3>
+    </div>
+    <div class="col-3">
+        <a asp-action="Crear" class="btn btn-primary form-control">
+            Crear etiqueta
+        </a>  
+    </div>
+
+</div>
+
+<section class="lista-etiquetas">
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-striped border">
+            <tr>
+                <th> @Html.DisplayNameFor(eti => eti.EtiquetaId) </th>
+                <th> @Html.DisplayNameFor(art => art.Titulo) </th>
+                <th> @Html.DisplayNameFor(art => art.Fecha) </th>
+                <th> Acción </th>
+            </tr>
+
+            @foreach(var etiqueta in Model)
+            {
+                <tr>
+                    <td>@etiqueta.EtiquetaId</td>
+                    <td>@etiqueta.Titulo</td>
+                    <td>@etiqueta.Fecha</td>
+                    <td>
+                        <a asp-action="Editar" asp-route-Id="@etiqueta.EtiquetaId" class="btn btn-primary">Editar</a>
+                        <a asp-action="Borrar" asp-route-Id="@etiqueta.EtiquetaId" class="btn btn-danger">Borrar</a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+    }
+    else
+    {
+        <p>
+            No hay etiquetas
+        </p>
+    }
+</section>
